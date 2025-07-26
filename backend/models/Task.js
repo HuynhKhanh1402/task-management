@@ -20,7 +20,7 @@ const taskSchema = new mongoose.Schema(
       default: 'Pending',
     },
     dueDate: { type: Date, require: true },
-    assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    assignedTo: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     attachments: [{ type: String }],
     todoChecklist: [{ todoScheme }],
