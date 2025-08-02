@@ -14,10 +14,16 @@ export default defineConfig([
         module: 'readonly',
         __dirname: 'readonly',
         process: 'readonly',
+        console: 'readonly',
       },
+    },
+    env: {
+      browser: true,
+      node: true,
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'no-console': 'off',
     },
   },
 ]);
