@@ -9,7 +9,7 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-      - ./uploads:/app/uploads  # Changed to bind mount for easier access
+      - ./uploads:/app/uploads
     environment:
       - UPLOAD_PATH=/app/uploads
     depends_on:
