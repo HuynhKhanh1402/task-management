@@ -27,3 +27,6 @@ Thumbs.db
 
 # MongoDB Data
 mongodb-data/
+
+# Uploads
+uploads/
