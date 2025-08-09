@@ -7,16 +7,19 @@ const Input = ({ email, onChange, label, placeholder, type }) => {
     setShowPassword(!showPassword);
   };
 
+  const resolvedType = type === 'password' ? (showPassword ? 'text' : 'password') : type;
+
   return (
     <div>
       <label className="text-[13px] text-slate-800">{label}</label>
 
       <div className="input-box">
         <input
-          type={type == 'password' ? (showPassword ? 'text' : 'password') : type}
+          type={resolvedType}
           placeholder={placeholder}
           className="w-full bg-transparent outline-none"
           onChange={e => onChange(e)}
+          autoComplete={type === 'password' ? 'new-password' : 'off'}
         />
 
         {type === 'password' && (
