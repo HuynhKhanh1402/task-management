@@ -12,11 +12,14 @@ services:
       - ./uploads:/app/uploads
     environment:
       - UPLOAD_PATH=/app/uploads
+      - NODE_ENV=development
     depends_on:
       - mongo
     networks:
       - app-network
     restart: unless-stopped
+    stdin_open: true
+    tty: true
 
   frontend:
     build: ./frontend
@@ -30,11 +33,15 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - FAST_REFRESH=true
     depends_on:
       - backend
     networks:
       - app-network
     restart: unless-stopped
+    stdin_open: true
+    tty: true
 
   mongo:
     image: mongo:6
