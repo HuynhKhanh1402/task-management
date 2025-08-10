@@ -19,7 +19,7 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   })
-);  
+);
 
 // Connect DB
 connectDB();
@@ -28,7 +28,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes); 
+app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/reports', reportRoutes);
@@ -37,4 +37,6 @@ app.use('/uploads', express.static(path.resolve('uploads')));
 
 // Start
 const port = process.env.PORT || 8000;
-app.listen(port, '0.0.0.0', () => console.log(`Server running on port ${port}`)); 
+app.listen(port, '0.0.0.0', () =>
+  console.log(`Server running on port ${port}`)
+);
