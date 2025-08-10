@@ -1,7 +1,9 @@
 import React from 'react';
+import { useUserAuth } from '../../hooks/useUserAuth';
 
 const UserDashboard = () => {
-  return <div>Dashboard</div>;
+  useUserAuth();
+  return <div>UserDashboard</div>;
 };
 
 export default UserDashboard;

@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import AuthLayout from '../../components/layouts/AuthLayout';
 import ProfilePhotoSelector from '../../components/inputs/ProfilePhotoSelector';
 import Input from '../../components/inputs/Input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { validateEmail } from '../../utils/helper';
+import { API_PATHS } from '../../utils/apiPaths';
+import { UserContext } from '../../context/userContext';
+import uploadImage from '../../utils/uploadImage';
+import axiosInstance from '../../utils/axiosInstance';
 
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
@@ -14,8 +18,13 @@ const SignUp = () => {
 
   const [error, setError] = useState(null);
 
+  const { updateUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const handleSignUp = async e => {
     e.preventDefault();
+
+    let profileImageUrl = '';
 
     if (!fullName.trim()) {
       setError('Please enter your full name.');
@@ -33,6 +42,38 @@ const SignUp = () => {
     }
 
     setError('');
+
+    try {
+      // Upload image if present
+      if (profilePic) {
+        const imageUploadRes = await uploadImage(profilePic);
+        profileImageUrl = imageUploadRes.imageUrl || '';
+      }
+
+      const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
+        fullName,
+        email,
+        password,
+        profileImageUrl,
+        adminInviteToken,
+      });
+
+      const { token, role } = response.data;
+
+      if (token) {
+        localStorage.setItem('token', token);
+        updateUser(response.data);
+
+        navigate(role === 'admin' ? '/admin/dashboard' : '/user/dashboard');
+      }
+    } catch (err) {
+      if (err.response && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        setError('Something went wrong. Please try again.');
+        console.error(err);
+      }
+    }
   };
 
   return (
