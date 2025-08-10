@@ -16,4 +16,5 @@ RUN mkdir -p /app/uploads && chmod 777 /app/uploads
 
 EXPOSE 8000
 
+ENV CHOKIDAR_USEPOLLING=true
 CMD ["npm", "run", "dev"]
