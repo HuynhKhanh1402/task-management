@@ -9,6 +9,8 @@ import moment from 'moment';
 import { LuTrash2 } from 'react-icons/lu';
 import SelectDropdown from '../../components/Inputs/SelectDropdown';
 import SelectUsers from '../../components/Inputs/SelectUsers';
+import TodoListInput from '../../components/Inputs/TodoListInput';
+import AddAttachmentsInput from '../../components/Inputs/AddAttachmentsInput';
 
 const CreateTask = () => {
   const location = useLocation();
@@ -55,7 +57,42 @@ const CreateTask = () => {
   // Update task
   const updateTask = async () => {};
 
-  const handleSubmit = async e => {};
+  const handleSubmit = async e => {
+    setError('');
+
+    // Input validation
+    if (!taskData.title.trim()) {
+      setError('Title is required.');
+      return;
+    }
+
+    if (!taskData.description.trim()) {
+      setError('Description is required.');
+      return;
+    }
+
+    if (!taskData.dueDate) {
+      setError('Due date is required.');
+      return;
+    }
+
+    if (taskData.assignedTo?.length === 0) {
+      setError('Task not assigned to anyone.');
+      return;
+    }
+
+    if (taskData.todoChecklist?.length === 0) {
+      setError('Add at least one todo task.');
+      return;
+    }
+
+    if (taskId) {
+      updateTask();
+      return;
+    }
+
+    createTask();
+  };
 
   // Get task info by ID
   const getTaskDetailsByID = async () => {};
@@ -138,6 +175,32 @@ const CreateTask = () => {
                     onChange={value => handleValueChange('assignedTo', value)}
                   />
                 </div>
+              </div>
+
+              <div className="mt-3">
+                <label className="text-xs font-medium text-slate-600">TODO Checklist</label>
+
+                <TodoListInput
+                  todoList={taskData?.todoChecklist}
+                  setTodoList={value => handleValueChange('todoChecklist', value)}
+                />
+              </div>
+
+              <div className="mt-3">
+                <label className="text-xs font-medium text-slate-600">Add Attachments</label>
+
+                <AddAttachmentsInput
+                  attachments={taskData?.attachments}
+                  setAttachments={value => handleValueChange('attachments', value)}
+                />
+              </div>
+
+              {error && <p className="text-xs font-medium text-red-500">{error}</p>}
+
+              <div className="flex justify-end mt-7">
+                <button className="add-btn" onClick={handleSubmit} disabled={loading}>
+                  {taskId ? 'UPDATE TASK' : 'CREATE TASK'}
+                </button>
               </div>
             </div>
           </div>
