@@ -39,7 +39,7 @@ const getTasks = async (req, res) => {
 
     // Status summary counts
     const allTasks = await Task.countDocuments(
-      req.user._role === 'admin' ? {} : { assignedTo: req.user._id }
+      req.user.role === 'admin' ? {} : { assignedTo: req.user._id }
     );
 
     const pendingTasks = await Task.countDocuments({
