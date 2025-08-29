@@ -7,7 +7,7 @@ import { LuFileSpreadsheet } from 'react-icons/lu';
 import TaskStatusTabs from '../../components/TaskStatusTabs';
 import TaskCard from '../../components/Cards/TaskCard';
 
-const ManagerTasks = () => {
+const ManageTasks = () => {
   const [allTasks, setAllTasks] = useState([]);
 
   const [tabs, setTabs] = useState([]);
@@ -99,4 +99,4 @@ const ManagerTasks = () => {
   );
 };
 
-export default ManagerTasks;
+export default ManageTasks;
