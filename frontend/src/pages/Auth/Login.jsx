@@ -37,8 +37,6 @@ const Login = () => {
         password,
       });
 
-      console.log(response);
-
       const { token, role } = response.data;
 
       if (token) {
