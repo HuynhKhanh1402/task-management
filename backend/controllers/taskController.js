@@ -252,7 +252,10 @@ const updateTaskChecklist = async (req, res) => {
 
     await task.save();
 
-    res.json({ message: 'Task checklist updated' });
+    res.json({ 
+      message: 'Task checklist updated',
+      task: task
+    });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
     console.error(error);
