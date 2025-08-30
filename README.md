@@ -1,10 +1,10 @@
 # Task Management System
 
-[![GitHub License](https://img.shields.io/github/license/HuynhKhanh1402/task-management?style=for-the-badge)](https://github.com/HuynhKhanh1402/task-management/blob/main/LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/HuynhKhanh1402/task-management?style=for-the-badge)](https://github.com/HuynhKhanh1402/task-management/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/HuynhKhanh1402/task-management?style=for-the-badge)](https://github.com/HuynhKhanh1402/task-management/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/HuynhKhanh1402/task-management?style=for-the-badge)](https://github.com/HuynhKhanh1402/task-management/issues)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/HuynhKhanh1402/task-management?style=for-the-badge)](https://github.com/HuynhKhanh1402/task-management/commits/main)
+[![GitHub License](https://img.shields.io/github/license/HuynhKhanh1402/task-management)](https://github.com/HuynhKhanh1402/task-management/blob/main/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/HuynhKhanh1402/task-management)](https://github.com/HuynhKhanh1402/task-management/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/HuynhKhanh1402/task-management)](https://github.com/HuynhKhanh1402/task-management/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/HuynhKhanh1402/task-management)](https://github.com/HuynhKhanh1402/task-management/issues)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/HuynhKhanh1402/task-management)](https://github.com/HuynhKhanh1402/task-management/commits/main)
 
 [![React](https://img.shields.io/badge/React-19.1.0-61dafb?logo=react&logoColor=white&style=for-the-badge)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white&style=for-the-badge)](https://nodejs.org/)
@@ -224,7 +224,7 @@ This will start:
 
 ## 🎨 Screenshots
 
-*Screenshots will be added here*
+*Coming soon*
 
 ## 🤝 Contributing
 
